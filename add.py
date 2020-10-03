@@ -5,9 +5,9 @@ yazılacaklar = {
 
 }
 try:   
-    with open('cumayedek.json','a')as yedek:
+    with open('cumayedek.json','a',encoding='utf8')as yedek:
         yedek.truncate(0)
-        with open('cumatest.json','r')as asıl:
+        with open('cumatest.json','r',encoding='utf8')as asıl:
             backup = json.load(asıl)
         yedek.write(json.dumps(backup))
         yazılacaklar = backup
@@ -28,7 +28,7 @@ def bilgial(ad):
                 yazılacaklar[ad].append(giriş)
     else:
         giriş = input('Aradığın tür yok abicim. Ekleyeleimli yoksa gerimi atak Girdiğin {} : '.format(ad))
-        if giriş == 'evet : ':
+        if giriş == 'evet':
             yazılacaklar[ad] = []
             return True
         else:
@@ -40,7 +40,7 @@ while True:
         break
     elif giriş == 'database drop':
         if input('gerçekten ise vallahi billahi yaz : ') == 'vallahi billahi':
-            with open('cumatest.json','r+') as file:
+            with open('cumatest.json','r+',encoding='utf8') as file:
                 file.truncate(0)
             yazılacaklar = {}
             print('database droplandı inş yanlışlıkla yapmışşındır amin')
@@ -52,7 +52,7 @@ while True:
             print('sikinti var')
 
 
-with open('cumatest.json','r+') as file:
+with open('cumatest.json','r+',encoding='utf8') as file:
     file.truncate(0)
     
     
