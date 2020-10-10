@@ -1,9 +1,11 @@
 import json 
-from os import remove
+import os
 yazılacaklar = {
 
 
 }
+
+os.chdir('precius datas')
 try:   
     with open('cumayedek.json','a',encoding='utf8')as yedek:
         yedek.truncate(0)
@@ -13,6 +15,7 @@ try:
         yazılacaklar = backup
 except:
     pass
+print(os.getcwd())
 print(type(yazılacaklar))
 
 def bilgial(ad):
