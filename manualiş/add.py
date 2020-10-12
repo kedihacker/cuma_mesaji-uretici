@@ -1,10 +1,7 @@
 import json 
 import os
-yazılacaklar = {
-
-
-}
-
+yazılacaklar = {}
+print('burada')
 os.chdir('precius datas')
 try:   
     with open('cumayedek.json','a',encoding='utf8')as yedek:
