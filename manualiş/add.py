@@ -1,12 +1,13 @@
-import json 
+import json
 import os
+
 yazılacaklar = {}
 print('burada')
 os.chdir('precius datas')
-try:   
-    with open('cumayedek.json','a',encoding='utf8')as yedek:
+try:
+    with open('cumayedek.json', 'a', encoding='utf8')as yedek:
         yedek.truncate(0)
-        with open('cumatest.json','r',encoding='utf8')as asıl:
+        with open('cumatest.json', 'r', encoding='utf8')as asıl:
             backup = json.load(asıl)
         yedek.write(json.dumps(backup))
         yazılacaklar = backup
@@ -14,6 +15,7 @@ except:
     pass
 print(os.getcwd())
 print(type(yazılacaklar))
+
 
 def bilgial(ad):
     if ad in yazılacaklar:
@@ -23,7 +25,7 @@ def bilgial(ad):
             giriş = input('q hariç heryeş yazılacak q çıkış : ')
             if giriş == 'q':
                 return True
-                
+
             else:
                 yazılacaklar[ad].append(giriş)
     else:
@@ -34,28 +36,26 @@ def bilgial(ad):
         else:
             return False
 
+
 while True:
     giriş = input('girilecek tür yazın : ')
     if giriş == 'q':
         break
     elif giriş == 'database drop':
         if input('gerçekten ise vallahi billahi yaz : ') == 'vallahi billahi':
-            with open('cumatest.json','r+',encoding='utf8') as file:
+            with open('cumatest.json', 'r+', encoding='utf8') as file:
                 file.truncate(0)
             yazılacaklar = {}
             print('database droplandı inş yanlışlıkla yapmışşındır amin')
             break
     else:
-        if True == bilgial(giriş):
+        if bilgial(giriş):
             print('işlem tamamlandı')
         else:
             print('sikinti var')
 
-
-with open('cumatest.json','r+',encoding='utf8') as file:
+with open('cumatest.json', 'r+', encoding='utf8') as file:
     file.truncate(0)
-    
-    
+
     writeorder = json.dumps(yazılacaklar)
     file.write(writeorder)
-
