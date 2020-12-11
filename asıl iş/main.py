@@ -13,7 +13,7 @@ def get_pieces (area,number): # get specified number of random out of given area
     geri = []
     for i in range(0,number):
         geri.append(random.choice(cuma_piece[area]))
-        return geri
+    return geri
 
 def get_piece (area):# get a ramdom piece
     try:
